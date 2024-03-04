@@ -155,7 +155,7 @@ rules:
   - list
   - get
   - watch
-{{- if eq (include "clusterAgent-remoteConfiguration-enabled" .) "true" }}
+{{- if or (eq (include "clusterAgent-remoteConfiguration-enabled" .) "true") (and .Values.datadog.apm.instrumentation.enabled .Values.datadog.apm.instrumentation.language_detection.enabled) }}
   - patch
 {{- end }}
 - apiGroups:

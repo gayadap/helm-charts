@@ -241,6 +241,10 @@ spec:
           - name: DD_APM_INSTRUMENTATION_ENABLED
             value: "true"
           {{- end }}
+          {{- if and .Values.datadog.apm.instrumentation.enabled .Values.datadog.apm.instrumentation.language_detection.enabled }}
+          - name: DD_LANGUAGE_DETECTION_ENABLED
+            value: "true"
+          {{- end }}
           {{- if ne (include "apmInstrumentation.enabledNamespaces" .) "" }}
           - name: DD_APM_INSTRUMENTATION_ENABLED_NAMESPACES
             value: {{ include "apmInstrumentation.enabledNamespaces" . }}

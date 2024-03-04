@@ -1,5 +1,9 @@
 # Datadog changelog
 
+## 3.57.4
+
+* Add language detection enable option for `APM` instrumentation.
+
 ## 3.57.3
 
 * Exclude agent, cluster agent and agent clusterchecks pods from injection from the admission controller.
